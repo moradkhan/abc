@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form enctype="multipart/form-data">
+            <h:panelGrid columns="3">
+                 <h:outputLabel value="ID"></h:outputLabel>
+                <h:outputLabel value=":"></h:outputLabel>
+                <h:inputText value="#{image.id}"></h:inputText>
+                
+                 <h:outputLabel value="Name"></h:outputLabel>
+                <h:outputLabel value=":"></h:outputLabel>
+                <h:inputText value="#{image.name}"></h:inputText>
+                
+                <h:outputLabel value="Image"></h:outputLabel>
+                <h:outputLabel value=":"></h:outputLabel>
+                <h:inputFile value="#{image.f1}"></h:inputFile>
+
+            </h:panelGrid>
+            <h:commandButton value="Save" action="index.xhtml" actionListener="#{image.save()}"></h:commandButton>
+            
+           
+                            
+        </h:form>
+        <h:form>
+            <table>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Image</td>
+                </tr>
+                <c:forEach var="v" items="${image.list}">
+                    <tr>
+                        <td><h:outputText value="#{v.id}"/></td>
+                        <td><h:outputText value="#{v.name}"/></td>
+                        <td><h:graphicImage library="images" name="#{v.s1}"></h:graphicImage></td>
+                        
+                    </tr>
+                </c:forEach>
+            </table>
+        </h:form>
+
+    </h:body>
+</html>
+
